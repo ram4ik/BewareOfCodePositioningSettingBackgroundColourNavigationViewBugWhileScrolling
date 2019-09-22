@@ -10,7 +10,24 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello World")
+        NavigationView {
+            ScrollView {
+                ForEach((1...20).reversed(), id: \.self) {_ in
+                    VStack {
+                        Text("SwiftUI")
+                        Button("Press me") {
+                            print("button pressed")
+                        }.frame(
+                            width: UIScreen.main.bounds.size.width,
+                            height: 40,
+                            alignment: .center)
+                            .background(Color.green)
+                            .foregroundColor(Color.white)
+                    }.navigationBarTitle("Project")
+                    
+                }.background(Color.orange)
+            }
+        }
     }
 }
 
